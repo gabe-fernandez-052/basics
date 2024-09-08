@@ -1,6 +1,6 @@
 ﻿using DesignPatterns.Creational.AbstractFactory.Products;
 
-namespace DesignPatterns.Creational.AbstractFactory.Factory
+namespace DesignPatterns.Creational.AbstractFactory.Factories
 {
     internal interface IWidgetFactory
     {

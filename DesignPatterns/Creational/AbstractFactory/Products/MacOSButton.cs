@@ -2,9 +2,6 @@
 {
     public class MacOSButton : IButton
     {
-        public void Paint()
-        {
-            Console.WriteLine("Rendering a button in a MacOS style.");
-        }
+        public void Paint() => Console.WriteLine("Rendering a button in a MacOS style.");
     }
 }

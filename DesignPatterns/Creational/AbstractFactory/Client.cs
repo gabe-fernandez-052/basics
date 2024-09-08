@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Creational.AbstractFactory.Factory;
+﻿using DesignPatterns.Creational.AbstractFactory.Factories;
 using DesignPatterns.Creational.AbstractFactory.Products;
 
 namespace DesignPatterns.Creational.AbstractFactory

@@ -1,5 +1,5 @@
 ﻿using DesignPatterns.Creational.Builder.Builders;
-using DesignPatterns.Creational.Builder.Director;
+using DesignPatterns.Creational.Builder.Directors;
 using DesignPatterns.Creational.Builder.Products;
 
 namespace DesignPatterns.Creational.Builder

@@ -1,7 +1,7 @@
 ﻿using DesignPatterns.Creational.Builder.Builders;
 using DesignPatterns.Creational.Builder.Products;
 
-namespace DesignPatterns.Creational.Builder.Director
+namespace DesignPatterns.Creational.Builder.Directors
 {
     public class MazeGame
     {

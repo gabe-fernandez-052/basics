@@ -2,8 +2,5 @@
 
 public class WindowsScrollbar : IScrollbar
 {
-    public void Scroll()
-    {
-        Console.WriteLine("Scrolling with a Windows-style scrollbar.");
-    }
+    public void Scroll() => Console.WriteLine("Scrolling with a Windows-style scrollbar.");
 }

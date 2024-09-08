@@ -6,9 +6,6 @@
         public Dictionary<string, Wall> Walls { get; private set; } = [];
         public Door Door { get; set; }
 
-        public void SetWall(string direction, Wall wall)
-        {
-            Walls[direction] = wall;
-        }
+        public void SetWall(string direction, Wall wall) => Walls[direction] = wall;
     }
 }
