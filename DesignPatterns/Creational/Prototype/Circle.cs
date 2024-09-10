@@ -1,22 +1,11 @@
 ﻿namespace DesignPatterns.Creational.Prototype
 {
-    public class Circle : IPrototype
+    public class Circle(int radius) : IPrototype
     {
-        public int Radius { get; set; }
+        public int Radius { get; set; } = radius;
 
-        public Circle(int radius)
-        {
-            Radius = radius;
-        }
+        public IPrototype Clone() => new Circle(Radius);
 
-        public IPrototype Clone()
-        {
-            return new Circle(this.Radius);
-        }
-
-        public override string ToString()
-        {
-            return $"Circle with radius {Radius}";
-        }
+        public override string ToString() => $"Circle with radius {Radius}";
     }
 }

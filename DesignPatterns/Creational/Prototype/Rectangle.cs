@@ -1,24 +1,12 @@
 ﻿namespace DesignPatterns.Creational.Prototype
 {
-    public class Rectangle : IPrototype
+    public class Rectangle(int width, int height) : IPrototype
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public int Width { get; set; } = width;
+        public int Height { get; set; } = height;
 
-        public Rectangle(int width, int height)
-        {
-            Width = width;
-            Height = height;
-        }
+        public IPrototype Clone() => new Rectangle(Width, Height);
 
-        public IPrototype Clone()
-        {
-            return new Rectangle(this.Width, this.Height);
-        }
-
-        public override string ToString()
-        {
-            return $"Rectangle with width {Width} and height {Height}";
-        }
+        public override string ToString() => $"Rectangle with width {Width} and height {Height}";
     }
 }
