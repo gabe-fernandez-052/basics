@@ -1,12 +1,14 @@
 ﻿namespace DesignPatterns.Creational.Prototype
 {
     /// <summary>
+    /// What is it?
+    /// Specify the kinds of objects to create using a prototypical instance, and create new objects by copying the prototype
     /// When to use?
     /// When a system should be independent of how its products created, composed, and represented
     /// When the classes to instantiate are specified at run-time, for example, by dynamic loading
     /// To avoid building a class hierarchy of factories that paralells the class hierarchy of products
     /// When instances of a class can have one of only a few different combinations of state. It may be more conventient to install a corresponding number of
-    /// prototypes and clone them rather than instantiating the class manually, each time with the appropriate state 
+    /// prototypes and clone them rather than instantiating the class manually, each time with the appropriate state
     /// </summary>
     public class Client
     {

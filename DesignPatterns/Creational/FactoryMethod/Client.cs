@@ -3,6 +3,8 @@
 namespace DesignPatterns.Creational.FactoryMethod
 {
     /// <summary>
+    /// What is it?
+    /// Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory method lets a class defer instantiation to subclass
     /// When to use?
     /// A class can't anticipate the class of objects it must create
     /// A class wants its subclasses to specify the objects it creates

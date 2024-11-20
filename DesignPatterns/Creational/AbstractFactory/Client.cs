@@ -4,6 +4,8 @@ using DesignPatterns.Creational.AbstractFactory.Products;
 namespace DesignPatterns.Creational.AbstractFactory
 {
     /// <summary>
+    /// What is it?
+    /// Provide an interface for creating families of related or dependent objects without specifying their concrete classes
     /// When to use?
     /// A system should be independent of how its products are created, composed, and represented.
     /// A system shpuld be configured with one of multiple families of products

@@ -5,12 +5,14 @@ using DesignPatterns.Structural.Bridge.RefinedAbstraction;
 namespace DesignPatterns.Structural.Bridge
 {
     /// <summary>
+    /// What is it?
+    /// Decouple an abstration from its implementation so that the two can vary independently
     /// When to use?
-    /// You want to avoid a permanent binding, between an abstraction and its implementation. 
+    /// You want to avoid a permanent binding, between an abstraction and its implementation.
     /// This might be the case, for example, when the implementation must be selected or switched at run time.
     /// Both the abstractions and their implementations should be extensible by subclassing. In this case, the Bridge pattern lets you combine the different abstractions
     /// and implmentations and extend them independently.
-    /// Changes in the implmentation of an abstraction should have no impact on clients; that is, their code should not have to be recompiled. 
+    /// Changes in the implmentation of an abstraction should have no impact on clients; that is, their code should not have to be recompiled.
     /// </summary>
     public class Client
     {

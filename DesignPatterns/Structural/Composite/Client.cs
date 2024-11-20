@@ -3,10 +3,12 @@
 namespace DesignPatterns.Structural.Composite
 {
     /// <summary>
+    /// What is it?
+    /// Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly
     /// When to use?
     /// You want to represent part-whole hierarchies of objects
-    /// You want clients to be able to ignore the difference between compositions of objects and individual objects. Clients will treat 
-    /// all objects in the composite structure uniformly. 
+    /// You want clients to be able to ignore the difference between compositions of objects and individual objects. Clients will treat
+    /// all objects in the composite structure uniformly.
     /// </summary>
     public class Client
     {

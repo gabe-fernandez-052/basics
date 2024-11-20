@@ -3,14 +3,9 @@ using DesignPatterns.Structural.Adapter.Target;
 
 namespace DesignPatterns.Structural.Adapter.Adapter
 {
-    public class TextShapeAdapter : IShape
+    public class TextShapeAdapter(TextView textView) : IShape
     {
-        private readonly TextView _textView;
-
-        public TextShapeAdapter(TextView textView)
-        {
-            _textView = textView;
-        }
+        private readonly TextView _textView = textView;
 
         public void BoundingBox()
         {
