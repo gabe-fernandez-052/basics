@@ -1,12 +1,12 @@
-using DesignPatterns.Behavioral.Mediator.Colleague;
+using ColleagueBase = DesignPatterns.Behavioral.Mediator.Colleague.Colleague;
 
 namespace DesignPatterns.Behavioral.Mediator.Mediator
 {
     public class ChatRoom : IMediator
     {
-        private readonly List<Colleague> _colleagues = new();
+        private readonly List<ColleagueBase> _colleagues = new();
 
-        public void Register(Colleague colleague) => _colleagues.Add(colleague);
+        public void Register(ColleagueBase colleague) => _colleagues.Add(colleague);
 
         public void SendMessage(string message, string senderName)
         {
