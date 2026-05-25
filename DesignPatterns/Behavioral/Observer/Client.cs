@@ -1,4 +1,4 @@
-using DesignPatterns.Behavioral.Observer.Observer;
+using DesignPatterns.Behavioral.Observer.Concrete;
 using DesignPatterns.Behavioral.Observer.Subject;
 
 namespace DesignPatterns.Behavioral.Observer
@@ -16,21 +16,24 @@ namespace DesignPatterns.Behavioral.Observer
     {
         public void Run()
         {
-            var stockMarket = new StockMarket("AAPL");
+            var timer   = new ClockTimer();
+            var digital = new DigitalClock(timer);
+            var analog  = new AnalogClock(timer);
 
-            var investor1 = new StockInvestor("Alice");
-            var investor2 = new StockInvestor("Bob");
+            timer.Attach(digital);
+            timer.Attach(analog);
 
-            stockMarket.Subscribe(investor1);
-            stockMarket.Subscribe(investor2);
+            Console.WriteLine("Tick 1:");
+            timer.Tick(9, 30, 0);
 
-            stockMarket.SetPrice(150.00m);
-            stockMarket.SetPrice(155.50m);
+            Console.WriteLine();
+            Console.WriteLine("Tick 2:");
+            timer.Tick(9, 30, 1);
 
-            Console.WriteLine("\nBob unsubscribes:");
-            stockMarket.Unsubscribe(investor2);
-
-            stockMarket.SetPrice(148.00m);
+            Console.WriteLine();
+            Console.WriteLine("Detach analog clock:");
+            timer.Detach(analog);
+            timer.Tick(9, 30, 2);
         }
     }
 }
