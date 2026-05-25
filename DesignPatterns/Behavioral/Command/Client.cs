@@ -19,20 +19,21 @@ namespace DesignPatterns.Behavioral.Command
     {
         public void Run()
         {
-            var editor = new TextEditor();
-            var history = new CommandHistory();
+            var application = new Application();
 
-            history.Execute(new InsertTextCommand(editor, "Hello"));
-            history.Execute(new InsertTextCommand(editor, " World"));
-            history.Execute(new InsertTextCommand(editor, "!"));
+            var openItem = new MenuItem("Open", new OpenCommand(application));
+            openItem.Clicked();
 
             Console.WriteLine();
-            Console.WriteLine("Undoing last command:");
-            history.Undo();
+
+            var doc       = application.LastDocument!;
+            var pasteCmd  = new PasteCommand(doc);
+            var pasteItem = new MenuItem("Paste", pasteCmd);
+            pasteItem.Clicked();
 
             Console.WriteLine();
-            Console.WriteLine("Undoing again:");
-            history.Undo();
+            Console.WriteLine("Undo paste:");
+            pasteCmd.Undo();
         }
     }
 }
