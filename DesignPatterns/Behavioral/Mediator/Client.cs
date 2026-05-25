@@ -1,4 +1,3 @@
-using DesignPatterns.Behavioral.Mediator.Colleague;
 using DesignPatterns.Behavioral.Mediator.Mediator;
 
 namespace DesignPatterns.Behavioral.Mediator
@@ -16,18 +15,14 @@ namespace DesignPatterns.Behavioral.Mediator
     {
         public void Run()
         {
-            var chatRoom = new ChatRoom();
+            var dialog = new FontDialog();
 
-            var alice   = new User("Alice", chatRoom);
-            var bob     = new User("Bob", chatRoom);
-            var charlie = new User("Charlie", chatRoom);
+            Console.WriteLine("User selects 'Times Roman' from the font list:");
+            dialog.SelectFont("Times Roman");
 
-            chatRoom.Register(alice);
-            chatRoom.Register(bob);
-            chatRoom.Register(charlie);
-
-            alice.Send("Hello everyone!");
-            bob.Send("Hey Alice!");
+            Console.WriteLine();
+            Console.WriteLine("User selects 'Arial' from the font list:");
+            dialog.SelectFont("Arial");
         }
     }
 }
