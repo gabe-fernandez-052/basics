@@ -1,3 +1,4 @@
+using DesignPatterns.Behavioral.Interpreter.Context;
 using DesignPatterns.Behavioral.Interpreter.Expression;
 
 namespace DesignPatterns.Behavioral.Interpreter
@@ -15,22 +16,29 @@ namespace DesignPatterns.Behavioral.Interpreter
     {
         public void Run()
         {
-            // Rule: "admin AND (editor OR viewer)"
-            IExpression admin  = new TerminalExpression("admin");
-            IExpression editor = new TerminalExpression("editor");
-            IExpression viewer = new TerminalExpression("viewer");
+            // Expression: (true AND x) OR (y AND (NOT x))
+            var x = new VariableExpression("x");
+            var y = new VariableExpression("y");
 
-            IExpression editorOrViewer = new OrExpression(editor, viewer);
-            IExpression rule = new AndExpression(admin, editorOrViewer);
+            var expression = new OrExpression(
+                new AndExpression(new Constant(true), x),
+                new AndExpression(y, new NotExpression(x))
+            );
 
-            var context1 = new HashSet<string> { "admin", "editor" };
-            var context2 = new HashSet<string> { "editor" };
-            var context3 = new HashSet<string> { "admin" };
+            var context = new BooleanContext();
 
-            Console.WriteLine("Rule: admin AND (editor OR viewer)");
-            Console.WriteLine($"  [admin, editor] => {rule.Interpret(context1)}");
-            Console.WriteLine($"  [editor]        => {rule.Interpret(context2)}");
-            Console.WriteLine($"  [admin]         => {rule.Interpret(context3)}");
+            context.Assign("x", false);
+            context.Assign("y", true);
+            Console.WriteLine("(true AND x) OR (y AND NOT x)");
+            Console.WriteLine($"  x=false, y=true  => {expression.Evaluate(context)}");
+
+            context.Assign("x", true);
+            context.Assign("y", true);
+            Console.WriteLine($"  x=true,  y=true  => {expression.Evaluate(context)}");
+
+            context.Assign("x", true);
+            context.Assign("y", false);
+            Console.WriteLine($"  x=true,  y=false => {expression.Evaluate(context)}");
         }
     }
 }
