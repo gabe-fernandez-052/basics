@@ -1,7 +1,9 @@
+using DesignPatterns.Behavioral.Interpreter.Context;
+
 namespace DesignPatterns.Behavioral.Interpreter.Expression
 {
     public interface IExpression
     {
-        bool Interpret(HashSet<string> context);
+        bool Evaluate(BooleanContext context);
     }
 }
