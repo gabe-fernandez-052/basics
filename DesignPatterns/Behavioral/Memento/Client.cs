@@ -5,7 +5,8 @@ namespace DesignPatterns.Behavioral.Memento
 {
     /// <summary>
     /// What is it?
-    /// Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later.
+    /// Without violating encapsulation, capture and externalize an object's internal state so that the object can be
+    /// restored to this state later.
     /// When to use?
     /// A snapshot of an object's state must be saved so that it can be restored to that state later.
     /// A direct interface to obtaining the state would expose implementation details and break the object's encapsulation.
@@ -14,27 +15,21 @@ namespace DesignPatterns.Behavioral.Memento
     {
         public void Run()
         {
-            var editor = new TextEditor();
-            var history = new EditorHistory();
+            var graphic = new Graphic("red", 0, 0, 100);
 
-            editor.SetContent("Hello");
-            history.Save(editor.Save());
-            Console.WriteLine($"Content: {editor.Content}");
+            var move1 = new MoveCommand(graphic, 10, 20);
+            move1.Execute();
 
-            editor.SetContent("Hello World");
-            history.Save(editor.Save());
-            Console.WriteLine($"Content: {editor.Content}");
+            var move2 = new MoveCommand(graphic, 5, 5);
+            move2.Execute();
 
-            editor.SetContent("Hello World!");
-            Console.WriteLine($"Content: {editor.Content}");
+            Console.WriteLine();
+            Console.WriteLine("Undoing last move:");
+            move2.Undo();
 
-            Console.WriteLine("\nUndoing...");
-            editor.Restore(history.Undo());
-            Console.WriteLine($"Content: {editor.Content}");
-
-            Console.WriteLine("\nUndoing again...");
-            editor.Restore(history.Undo());
-            Console.WriteLine($"Content: {editor.Content}");
+            Console.WriteLine();
+            Console.WriteLine("Undoing first move:");
+            move1.Undo();
         }
     }
 }
