@@ -1,5 +1,4 @@
 using DesignPatterns.Behavioral.ChainOfResponsibility.Concrete;
-using DesignPatterns.Behavioral.ChainOfResponsibility.Handler;
 
 namespace DesignPatterns.Behavioral.ChainOfResponsibility
 {
@@ -16,24 +15,17 @@ namespace DesignPatterns.Behavioral.ChainOfResponsibility
     {
         public void Run()
         {
-            var teamLead = new TeamLeadHandler();
-            var manager = new ManagerHandler();
-            var director = new DirectorHandler();
+            var application  = new HelpApplication("Application Help");
+            var dialog       = new Dialog(application, "Print Dialog", "Paper Sizes");
+            var printButton  = new Button(dialog, "Print");
+            var cancelButton = new Button(dialog, "Cancel", "Canceling a Print Job");
 
-            teamLead.SetNext(manager);
-            manager.SetNext(director);
+            Console.WriteLine("Print button requests help (no topic — passes up to dialog):");
+            printButton.HandleHelp();
 
-            Console.WriteLine("Submitting expense of $300:");
-            teamLead.Handle(300);
-
-            Console.WriteLine("\nSubmitting expense of $1500:");
-            teamLead.Handle(1500);
-
-            Console.WriteLine("\nSubmitting expense of $8000:");
-            teamLead.Handle(8000);
-
-            Console.WriteLine("\nSubmitting expense of $15000:");
-            teamLead.Handle(15000);
+            Console.WriteLine();
+            Console.WriteLine("Cancel button requests help (has topic — handled directly):");
+            cancelButton.HandleHelp();
         }
     }
 }
